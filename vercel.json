@@ -1,3 +1,24 @@
 {
-  "public": "public"
+  "version": 2,
+  "public": "public",
+  "builds": [
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/src/(.*)",
+      "dest": "/src/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
