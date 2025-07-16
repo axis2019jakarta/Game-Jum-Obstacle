@@ -1,9 +1,8 @@
 {
   "version": 2,
-  "public": "public",
   "builds": [
     {
-      "src": "public/**",
+      "src": "public/**/*",
       "use": "@vercel/static"
     }
   ],
@@ -17,7 +16,14 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "/(.*\\.(js|css|html|png|ogg|jpg|jpeg|gif|svg))$",
+      "dest": "/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
       "dest": "/index.html"
     }
   ]
